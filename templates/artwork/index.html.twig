@@ -1,0 +1,27 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Page des artworks{% endblock %}
+
+{% block body %}
+
+    <body class="artworkIndexBodyBackground">
+        
+        <div class="container mt-3">
+            <div class="container-fluid headerArtworkIndex text-center">
+                <h1>Liste des oeuvres :</h1>
+                <p>Nous avons actuellement <strong class"strongHeaderArtworkIndex">{{ artworks.getTotalItemCount }}</strong> oeuvres répertoriées sur notre site, aidez nous à l'enrichir !</p>
+                <button class="btn btn-info" type="submit">Ajouter une oeuvre</button>
+            </div>
+            <div class="row">
+                {% for artwork in artworks %}
+                    {% include "artwork/_artworkCard.html.twig" %}
+                {% endfor %}
+            </div>
+            
+            <div class="navigation">
+                {{ knp_pagination_render(artworks) }}
+            </div>
+        </div>
+    </body>
+        
+{% endblock %}

@@ -1,0 +1,12 @@
+<div class="card mb-3 discussionThemeCard">
+  <div class="card-header DiscussionThemeCardHeader" style="background-color: #dcc8a8;">
+    <a href="{{ path( 'discussion_theme_show', {'themeSlug': discussionTheme.themeSlug} ) }}">
+      <h3>{{discussionTheme.label}}</h3>
+    </a>
+  </div>
+  <div class="card-body DiscussionThemeCardBody">
+    <h5 class="card-title">{{discussionTheme.catchPhrase}}</h5>
+    <p class="card-text">{{discussionTheme.description}}</p>
+  </div>
+</div>
+

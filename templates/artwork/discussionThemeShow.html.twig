@@ -1,0 +1,15 @@
+{% extends "base.html.twig" %}
+
+{% block body %}
+    
+        <div class="container-fluid text-center pt-5 artworkDiscussionThemeShowBackground">
+            
+            <h1>{{discussionTheme.label}} | {{artwork.title}}</h1>
+            <p>{{discussionTheme.description}}</p>
+        </div>
+        
+        <div class="container mt-3 mb-3">
+            <h2>Affichage des commentaires de la catégorie <strong>{{discussionTheme.label}}</strong> sur l'oeuvre <strong>{{artwork.title}}</strong></h2>
+        </div>
+        
+{% endblock %}

@@ -1,0 +1,44 @@
+{% set url = path('artwork_show', {'slug': artwork.slug}) %}
+
+
+<div class="col-4 mt-4">
+  <div class="card mb-3 artworkCard">
+    <a class="artworkCardHeaderBackground" href="{{ url }}">
+      <h3 class="card-header">{{artwork.title}}</h3>
+    </a>
+    <div class="card-body">
+
+          {# <h5 class="card-title">Note globale de l'oeuvre : {{artwork.globalRate}} / 10</h5> #}
+          <h6>
+          
+            {% if artwork.globalRate >= 7 %}
+              
+              <p>Cette oeuvre a une note supérieure à 7/10. <br> Elle doit être qualitative ! </p>
+              
+
+            {% elseif artwork.globalRate >= 3  or artwork.globalRate <= 5 %}
+
+              <p>Cette oeuvre a une note légèrement basse <br> En avez-vous pensé la même chose ?</p>
+              
+
+            {% elseif artwork.globalRate <= 3 %}
+
+              <p>Cette oeuvre a une note vraiment basse <br> Mais qu'est-il passé par la tête de son créateur ?!</p>
+              
+
+            {% endif %}
+          
+          </h6>
+      
+      <a href="{{ url }}">
+          <h6 class="card-subtitle text-muted">Venez donner votre avis !</h6>
+      </a>
+    </div>
+    <a href="{{ url }}">
+      <img class="artworkCardImage" src="{{artwork.imageUrl}}" alt="Card image">
+    </a>
+    <div class="card-body">
+      <p class="card-text"><strong>Description de l'oeuvre : </strong></p> <p>{{ artwork.shortDescription }}</p>
+    </div>
+  </div>
+</div>

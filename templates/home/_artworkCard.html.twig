@@ -1,0 +1,24 @@
+{% set url = path('artwork_show', {'slug': artwork.slug}) %}
+
+
+<div class="col-4 mt-4">
+  <div class="card mb-3">
+    <a href="{{ url }}">
+      <h3 class="card-header">{{artwork.title}}</h3>
+    </a>
+    <div class="card-body">
+
+          <h5 class="card-title">Note globale de l'oeuvre : {{artwork.globalRate}} / 10</h5>
+      
+      <a href="{{ url }}">
+          <h6 class="card-subtitle text-muted">Venez donner votre avis !</h6>
+      </a>
+    </div>
+    <a href="{{ url }}">
+      <img class="artworkCardImage" src="{{artwork.imageUrl}}" alt="Card image">
+    </a>
+    <div class="card-body">
+      <p class="card-text"><strong>Description de l'oeuvre : </strong></p> <p>{{ artwork.shortDescription }}</p>
+    </div>
+  </div>
+</div>

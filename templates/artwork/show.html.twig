@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{artwork.title}}{% endblock %}
+
+{% block body %}
+    <body class="ArtworkShowBodyBackground">
+        <div class="container-fluid artworkShowHeader" style="background-image: url({{artwork.imageUrl}});">
+            <h1 class="text-center pt-5">{{artwork.title}}</h1>
+            <h3 class="text-center mt-4">Note des utilisateurs : {{artwork.globalRate}} / 10</h3>
+        </div>
+
+        <div class="container mt-4 py-5 px-3" >
+            {% include "artwork/_artworkTab.html.twig" %}
+        </div>
+
+        <hr>
+
+        <div class="container">
+            <h2 class="text-center">Thèmes de debats</h2>
+
+            <div class="row mt-5">
+                {% for discussionTheme in artwork.discussionTheme %}
+                    <div class="col-4">
+                        {% include "artwork/_artworkThemeCard.html.twig" %}
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+
+        {# <div class="navigation">
+            {{ knp_pagination_render(discussionTheme) }}
+        </div> #}
+
+        <hr>
+
+        <div class="container">
+            <div class="col-6"></div>
+        </div>
+    </body>
+
+{% endblock %}

@@ -1,0 +1,125 @@
+//////////////////////////////////////////////// All pages ////////////////////////////////////////////////
+
+@import url('./bootstrap.min.css');
+
+a{
+    color:black;
+}
+
+a:hover{
+    color : saddlebrown;
+}
+
+
+
+
+
+
+//////////////////////////////////////////////// Homepage ////////////////////////////////////////////////
+
+.homepageBodyBackground{
+    background-image: url('https://cdn.pixabay.com/photo/2016/11/23/15/06/wooden-floor-1853411_960_720.jpg');
+}
+
+.secondIndexTitle{
+    background-color: rgba(0, 0, 0, 0.65); 
+    height: 50px; 
+    border-radius: 15px 15px 15px 15px;
+    color:white;
+}
+
+//////////////////////////////////////////////// Login Page /////////////////////////////////////////////
+
+.LoginPageBackground{
+    background-image: url('https://cdn.pixabay.com/photo/2017/02/14/09/02/wood-2065366_960_720.jpg');
+}
+
+.loginForm{
+    background-color: rgba(220, 200, 168, 0.9)!important;
+    border-radius: 30px;
+}
+
+//////////////////////////////////////////////// Artwork ////////////////////////////////////////////////
+
+// Artwork/index.html.twig
+
+.artworkIndexBodyBackground{
+    background-image: url('https://cdn.pixabay.com/photo/2016/11/29/01/51/wood-1866654_960_720.jpg');
+}
+
+.headerArtworkIndex{
+    background:rgba(0, 0, 0, 0.5); 
+    height: 180px; 
+    color:white;
+    padding-top: 25px;
+    p{
+        font-size: 1.3rem;
+    }
+}
+
+// Artwork/show.html.twig
+
+.ArtworkShowBodyBackground{
+    background: whitesmoke;
+}
+
+.artworkShowHeader{
+    height:200px;
+}
+
+//Artwork/_artworkThemeCard.html.twig
+
+.DiscussionThemeCardBody{
+    height: 180px;
+    overflow: hidden;
+}
+
+// ArtworkThemeCard.html.twig
+.artworkThemeCardBody{
+    max-height: 180px;
+    overflow: hidden;
+}
+
+.artworkCardImage{
+    width: 100%;
+}
+
+.artworkDiscussionThemeShowBackground{
+    background-image: url('http://placehold.it/500x200'); 
+    height:200px;
+}
+
+.artworkCard{
+    min-height: 528px;
+}
+
+
+
+
+//////////////////////////////////////////////// DiscussionTheme ////////////////////////////////////////////////
+
+// DiscussionTheme/Index.html.twig
+
+.discussionThemeIndexBody{
+    background-image: url('https://cdn.pixabay.com/photo/2016/11/29/01/54/wood-1866667_960_720.jpg');
+    background-size: 100%;
+}
+
+.headerDiscussionThemeIndex{
+    background:rgba(0, 0, 0, 0.5); 
+    height: 180px; 
+    color:white;
+    padding-top: 25px;
+    p{
+        font-size: 1.3rem;
+    }
+}
+
+.discussionThemeCard{
+    max-width: 20rem;
+}
+
+.DiscussionThemeCardHeader{
+    background-color: #dcc8a8;
+}
+

@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Thèmes de discussion{% endblock %}
+
+{% block body %}
+
+    <body class="discussionThemeIndexBody">
+        <div class="container mt-3">
+            <div class="container-fluid headerDiscussionThemeIndex text-center">
+                <h1>Liste des Thèmes globaux :</h1>
+                <p>Voici les thèmes de discussion de base que possèdent toutes nos oeuvres.</p>
+                <button class="btn btn-info" type="submit">Ajouter une oeuvre</button>
+            </div>
+
+            <div class="row">
+                {% for discussionTheme in discussionThemes %}
+                    <div class="col-4 mt-4">
+                        {% include "discussion_theme/_discussionThemeCard.html.twig" %}
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </body>
+
+{% endblock %}

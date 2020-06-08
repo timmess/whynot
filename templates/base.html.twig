@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>WhyNot - {% block title %}{% endblock %}</title>
+        <link rel="stylesheet" href="{{ asset('build/app.css') }}">
+        {% block stylesheets %}{% endblock %}
+    </head>
+    <body>
+
+        {% include "partials/header.html.twig" %}
+
+        {% for label, messages in app.flashes %}
+
+        <div class="container">
+            <div class="alert alert-{{label}}">
+                {% for message in messages %}
+                    <p>{{message | raw}}</p>
+                {% endfor %}
+            </div>
+        </div>
+            
+        {% endfor %}
+
+        {% block body %}{% endblock %}
+
+        {% include "partials/footer.html.twig" %}
+
+        {% block javascripts %} {{ encore_entry_script_tags('app') }} {% endblock %}
+    </body>
+</html>
