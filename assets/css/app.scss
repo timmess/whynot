@@ -10,7 +10,14 @@ a:hover{
     color : saddlebrown;
 }
 
-
+header{
+    a{
+        color: white;
+    }
+    a:hover{
+        color:grey;
+    }
+}
 
 
 
@@ -57,6 +64,8 @@ a:hover{
     }
 }
 
+
+
 // Artwork/show.html.twig
 
 .ArtworkShowBodyBackground{
@@ -67,18 +76,20 @@ a:hover{
     height:200px;
 }
 
+
+
 //Artwork/_artworkThemeCard.html.twig
+
+.artworkThemeCardBody{
+    max-height: 180px;
+    overflow: hidden;
+}
 
 .DiscussionThemeCardBody{
     height: 180px;
     overflow: hidden;
 }
 
-// ArtworkThemeCard.html.twig
-.artworkThemeCardBody{
-    max-height: 180px;
-    overflow: hidden;
-}
 
 .artworkCardImage{
     width: 100%;

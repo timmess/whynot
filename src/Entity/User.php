@@ -7,9 +7,16 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Security\Core\User\UserInterface;
+use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 
 /**
  * @ORM\Entity(repositoryClass=UserRepository::class)
+ * 
+ * @UniqueEntity(
+ * fields={"email"},
+ * message="Un autre utilisateur s'est déjà inscrit avec cette adresse mail, merci de la modifier."
+ * )
  */
 class User implements UserInterface
 {
@@ -22,6 +29,7 @@ class User implements UserInterface
 
     /**
      * @ORM\Column(type="string", length=180, unique=true)
+     * @Assert\Email(message="Veuillez renseigner un email valide")
      */
     private $email;
 
@@ -37,9 +45,9 @@ class User implements UserInterface
     private $password;
 
     /**
-     * @var string The confirmed hashed password
+     * @Assert\EqualTo(propertyPath="password", message="Vous n'avez pas correctement confirmé votre mot de passe.")
      */
-    private $confirmPassword;
+    public $confirmPassword;
 
     /**
      * @ORM\OneToMany(targetEntity=Artwork::class, mappedBy="user")
@@ -108,21 +116,6 @@ class User implements UserInterface
     public function setPassword(string $password): self
     {
         $this->password = $password;
-
-        return $this;
-    }
-
-     /**
-     * @see UserInterface
-     */
-    public function getConfirmPassword(): string
-    {
-        return (string) $this->confirmPassword;
-    }
-
-    public function setConfirmPassword(string $confirmPassword): self
-    {
-        $this->password = $confirmPassword;
 
         return $this;
     }
