@@ -10,12 +10,33 @@
             <h1 class="display-3">WhyNot</h1>
             <p class="lead">Ce site est un forum amélioré : vous pouvez donner votre avis sur nimporte quelle oeuvre !</p>
             <hr class="my-4">
-            <p>Afin de pouvoir donner votre avis vous devez vous inscrire, mais vous pouvez simplement consulter les avis des internautes concernant vos oeuvres favorites !</p>
-            <p class="lead">
-                <a class="btn btn-primary btn-lg" href="#" role="button">Inscrivez-vous !</a>
-            </p>
+            {% if app.user %}
+                <p>Allez consulter votre oeuvre préférée pour voir ce que les autres internautes en pensent !</p>
+                <p class="lead">
+                    <a class="btn btn-primary btn-lg" href="{{path('artworks_index')}}" role="button">Nos oeuvres</a>
+                </p>
+            {% else %}
+            <div class="container">
+                <div class="row">
+                    <div class="col-6">
+                        <p>Afin de pouvoir donner votre avis vous devez vous inscrire :</p>
+                        <p class="lead">
+                            <a class="btn btn-primary btn-lg" href="{{path('account_register')}}" role="button">Inscrivez-vous !</a>
+                        </p>
+                    </div>
+                    <div class="col-6">
+                        <p>Déjà inscrit ?</p>
+                        <p class="lead">
+                            <a class="btn btn-primary btn-lg" href="{{path('account_login')}}" role="button">Se connecter !</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+                
+                
+            {% endif %}
+            
         </div>
-
         
         <div class="row">
             <div class="col-3"></div>

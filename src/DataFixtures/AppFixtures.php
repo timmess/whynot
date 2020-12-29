@@ -6,8 +6,8 @@ namespace App\DataFixtures;
 use Faker\Factory;
 use App\Entity\User;
 use App\Entity\Artwork;
-use Cocur\Slugify\Slugify;
 use App\Entity\DiscussionTheme;
+use App\Entity\Role;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Common\Persistence\ObjectManager;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
@@ -23,7 +23,16 @@ class AppFixtures extends Fixture
     public function load(ObjectManager $manager)
     {
         $faker = Factory::create('fr_FR');
+        
+        $adminRole = new Role();
+        $adminRole->setTitle('ROLE_ADMIN');
+        $manager->persist($adminRole);
 
+        $adminUser = new User();
+        $adminUser->setEmail('aqme_sk8@hotmail.fr')
+                  ->setPassword($this->encoder->encodePassword($adminUser, 'password'))
+                  ->addUserRole($adminRole);
+        $manager->persist($adminUser);
 
         // Gestion des Users
         $users = [];
@@ -52,7 +61,7 @@ class AppFixtures extends Fixture
                 $synopsis = $faker->paragraph(15, 30);
                 $shortDescription = $faker->sentences(2, 4);
                 $globalRate = $faker->randomDigitNot(5);
-                $imageUrl="http://placehold.it/600x400";
+                $imageUrl="https://place-hold.it/600x400";
 
                 $user = $users[mt_rand(0, count($users) - 1)];
                 
