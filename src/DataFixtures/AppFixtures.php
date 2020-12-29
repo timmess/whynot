@@ -9,7 +9,7 @@ use App\Entity\Artwork;
 use App\Entity\DiscussionTheme;
 use App\Entity\Role;
 use Doctrine\Bundle\FixturesBundle\Fixture;
-use Doctrine\Common\Persistence\ObjectManager;
+use Doctrine\Persistence\ObjectManager as PersistenceObjectManager;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 
 class AppFixtures extends Fixture
@@ -20,7 +20,7 @@ class AppFixtures extends Fixture
         $this->encoder = $encoder;
     }
 
-    public function load(ObjectManager $manager)
+    public function load(PersistenceObjectManager $manager)
     {
         $faker = Factory::create('fr_FR');
         
